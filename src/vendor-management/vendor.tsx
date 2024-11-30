@@ -3,7 +3,7 @@ import OrderManagement from "./pages/orderManagement";
 import ProductManagement from "./pages/productManagement";
 import VendorProfile from "./pages/vendorProfile";
 import SaleAnalytics from "./pages/saleAnalytics";
-import { Sidebar } from "./header/SideBar";
+import { Sidebar } from "./header/sideBar";
 
 function Vendor() {
   return (

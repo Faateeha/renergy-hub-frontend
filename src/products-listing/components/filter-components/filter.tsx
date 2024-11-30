@@ -6,7 +6,7 @@ import { useProductStore } from "../../store/store";
 import { useDebounce } from "use-debounce"; // Import useDebounce
 import { Input } from "../../../components/ui/input";
 import { Search } from "lucide-react";
-import SortOrder from "./sortOrder";
+import SortOrder from "./SortOrder";
 
 //this is the Filter component, the parent component of all filtering, sorting and searching components
 const Filter = () => {
@@ -102,21 +102,25 @@ const Filter = () => {
   return (
     <section className="flex flex-col gap-2">
       <header className="p-5 flex flex-col gap-4">
-        <ul className="flex gap-8 justify-between items-center">
+        <ul className="flex gap-2 lg:gap-8 justify-between items-center">
           <li className="px-8">
             <h1 className="text-3xl">Products</h1>
           </li>
-          <li className="relative w-full">
+          <li className="max-w-[500px] md:min-w-[500px]">
+          <div className="relative w-full ">
             <Input
               type="text"
               value={searchQuery}
               onChange={handleSearchChange}
               placeholder="Search products"
-              className="border p-2 rounded  text-right pl-2 pr-8 "
+              className="border p-2 rounded   text-right pl-2 pr-8 "
             />
             <Search className="absolute right-2 top-2" />
+          </div>
+
           </li>
-          <li className="text-3xl">Settings</li>
+        
+          <li className="text-3xl hidden lg:flex">Settings</li>
         </ul>
       </header>
 
