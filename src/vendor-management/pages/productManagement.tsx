@@ -1,5 +1,6 @@
+import { SubmitForm } from "../../api/postProdcut";
 import { useState, ChangeEvent, useEffect } from "react";
-
+import { useProductStore } from "../../products-listing/store/store";
 interface ProductManagementType {
   productName: string;
   description: string;
@@ -10,6 +11,7 @@ interface ProductManagementType {
 }
 
 const ProductManagement: React.FC = () => {
+  const { userId } = useProductStore(); // Get the current user ID
   const [productData, setProductData] = useState<ProductManagementType>({
     productName: "",
     description: "",
@@ -44,6 +46,7 @@ const ProductManagement: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    SubmitForm(productData,userId, 1)
     console.log("Product Data:", productData);
   };
 
