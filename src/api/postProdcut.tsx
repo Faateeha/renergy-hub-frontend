@@ -1,5 +1,7 @@
 import axios from 'axios';
+import { toast } from "sonner";
 
+import { BadgeCheck,CircleX } from "lucide-react";
 
 export async function SubmitForm(formData: any, userId: number, categoryId: number,): Promise<void> {
   try {
@@ -26,7 +28,13 @@ export async function SubmitForm(formData: any, userId: number, categoryId: numb
     });
 
     console.log('Product submitted successfully:', response.data);
+    toast("Added product: Successfully", {
+      description: "The product has been added successfully",
+      icon: <BadgeCheck className="text-[#002603]" />,  });
   } catch (error) {
     console.error('Error submitting product:', error);
+    toast("Failed to add product", {
+      description: "The product has not been added successfully, please try again",
+      icon: <CircleX className="text-red-500" />,  });
   }
 }
